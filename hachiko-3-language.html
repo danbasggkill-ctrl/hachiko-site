@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Хачико — Иесін күткен ит</title>
+<meta name="description" content="Хачико — Иесін күткен ит. Лесли Ньюманның шығармасына арналған оқу жобасы.">
+<style>
+:root{
+  --bg:#171615; --bg2:#211f1d; --paper:#252321; --paper2:#2c2926;
+  --text:#ded8d1; --muted:#9c938a; --line:#413b36;
+  --accent:#9b8472; --accent2:#b5a292; --black:#0e0d0c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--text); font-family:Georgia,"Times New Roman",serif;
+  line-height:1.8;
+}
+body:before{
+  content:""; position:fixed; inset:0; pointer-events:none; opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg width='120' height='120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+}
+a{color:inherit;text-decoration:none}
+.nav{
+  position:sticky;top:0;z-index:10;background:rgba(23,22,21,.94);
+  border-bottom:1px solid var(--line);backdrop-filter:blur(12px)
+}
+.nav-inner{max-width:1120px;margin:auto;padding:16px 25px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:var(--accent2)}
+.navlinks{display:flex;gap:28px;font-family:Arial,sans-serif;font-size:12px;color:var(--muted)}
+.navlinks a:hover{color:var(--text)}
+.menu-toggle{display:none;width:42px;height:36px;border:1px solid var(--line);background:transparent;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.menu-toggle span{display:block;width:18px;height:1px;background:var(--accent2);transition:.25s}
+.mobile-menu{display:none}
+.hero{
+  max-width:1120px;margin:auto;min-height:calc(100vh - 58px);padding:80px 25px;
+  display:grid;grid-template-columns:1fr .7fr;gap:80px;align-items:center
+}
+.eyebrow{font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:.22em;font-size:10px;color:var(--accent2);margin-bottom:20px}
+h1{font-size:clamp(58px,9vw,112px);font-weight:400;line-height:.86;letter-spacing:-.06em}
+.subtitle{font-size:clamp(22px,3vw,34px);font-style:italic;color:var(--muted);margin:25px 0 22px}
+.author{font-family:Arial,sans-serif;color:var(--muted);font-size:13px;letter-spacing:.04em}
+.hero-note{margin-top:45px;max-width:580px;color:#aaa198;font-size:16px}
+.cover{
+  max-width:400px;justify-self:center;padding:10px;background:#0f0e0d;
+  box-shadow:0 30px 80px rgba(0,0,0,.55);transform:rotate(-1deg)
+}
+.cover img{display:block;width:100%;filter:saturate(.72) contrast(.96) brightness(.9)}
+section{max-width:1120px;margin:auto;padding:100px 25px}
+.divider{height:1px;background:var(--line);max-width:1070px;margin:auto}
+.section-title{font-size:clamp(35px,5vw,58px);font-weight:400;line-height:1.05;margin-bottom:18px}
+.section-lead{max-width:760px;color:var(--muted);font-size:17px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:55px}
+.long-text p{margin-bottom:20px;color:#bdb5ae}
+.dark-box{background:var(--paper);border:1px solid var(--line);padding:38px}
+.dark-box h3{font-size:26px;font-weight:400;margin-bottom:15px}
+.dark-box p{color:var(--muted)}
+.timeline{border-left:1px solid #514941;margin-top:45px;padding-left:35px}
+.event{position:relative;margin-bottom:42px}
+.event:before{content:"";position:absolute;left:-41px;top:12px;width:11px;height:11px;border:1px solid var(--accent2);background:var(--bg);border-radius:50%}
+.event h3{font-size:23px;font-weight:400;margin-bottom:7px}
+.event p{color:var(--muted);max-width:800px}
+.quote{
+  margin:55px 0;padding:45px 10px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  text-align:center
+}
+.quote p{font-size:clamp(24px,4vw,42px);font-style:italic;color:#c9c0b8;line-height:1.35}
+.video{
+  background:var(--black);border:1px solid var(--line);
+  width:100%;padding:0;overflow:hidden;
+}
+.video-inner{
+  width:100%;max-width:none;padding:0;
+}
+.video-box{
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+}
+.video-box video{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.video-line{width:70px;height:1px;background:var(--accent);margin:0 auto 28px}
+.video h3{font-size:30px;font-weight:400;margin-bottom:12px}
+.video p{color:var(--muted)}
+.video-youtube{
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+}
+.video-youtube iframe{
+  display:block;
+  width:100%;
+  height:100%;
+  border:0;
+}
+.video-actions{
+  display:flex;justify-content:center;align-items:center;gap:12px;
+  flex-wrap:wrap;margin-top:16px;padding:0 10px 18px;
+}
+.video-link{
+  display:inline-block;padding:10px 16px;border:1px solid var(--line);
+  color:#cfc5bd;font:11px Arial,sans-serif;letter-spacing:.04em;
+}
+.video-link:hover{background:#d7cec6;color:#171615}
+
+.themes{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.theme{background:var(--paper);padding:35px}
+.theme h3{font-size:25px;font-weight:400;margin-bottom:10px}
+.theme p{color:var(--muted)}
+.footer{border-top:1px solid var(--line);padding:50px 25px;color:#706962;text-align:center;font-family:Arial,sans-serif;font-size:11px;letter-spacing:.04em}
+@media(max-width:800px){
+  .navlinks{display:none}
+  .menu-toggle{display:flex}
+  .mobile-menu{position:fixed;left:12px;right:12px;top:62px;z-index:30;display:none;flex-direction:column;background:rgba(25,23,21,.98);border:1px solid var(--line);box-shadow:0 20px 50px rgba(0,0,0,.45);backdrop-filter:blur(14px)}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{padding:14px 18px;border-bottom:1px solid rgba(65,59,54,.7);font:12px Arial,sans-serif;color:var(--muted)}
+  .mobile-menu a:last-child{border-bottom:0}
+  .mobile-menu a:hover{color:var(--text);background:rgba(255,255,255,.03)}
+  .hero{grid-template-columns:1fr;min-height:auto;padding-top:65px}
+  .cover{max-width:320px}
+  .two,.themes{grid-template-columns:1fr}
+  section{padding:70px 20px}
+}
+
+.gallery{display:grid;grid-template-columns:1.35fr .8fr;gap:18px;margin-top:42px}
+.gallery figure{margin:0;background:var(--paper);border:1px solid var(--line);padding:10px}
+.gallery img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.75) contrast(.96)}
+.gallery figure:first-child{min-height:430px}
+.gallery figure:last-child{min-height:430px}
+.gallery figcaption{padding:14px 10px 7px;color:var(--muted);font-family:Arial,sans-serif;font-size:11px;letter-spacing:.03em}
+@media(max-width:800px){.gallery{grid-template-columns:1fr}.gallery figure:first-child,.gallery figure:last-child{min-height:0}}
+
+
+.film-summary{
+  margin-top:42px;background:var(--paper);border:1px solid var(--line);
+  padding:42px;position:relative
+}
+.film-summary:before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)
+}
+.film-summary h3{font-size:30px;font-weight:400;margin-bottom:18px}
+.film-summary p{color:#bdb5ae;margin-bottom:17px}
+.film-note{margin-top:28px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-family:Arial,sans-serif;font-size:12px}
+
+
+.buy-cta{
+  margin-top:38px;padding-top:26px;border-top:1px solid var(--line);max-width:580px
+}
+.buy-cta p{color:var(--muted);font-size:14px;margin-bottom:16px}
+.buy-btn{
+  display:inline-block;padding:12px 20px;border:1px solid #62574f;
+  color:#d7cec6;font-family:Arial,sans-serif;font-size:12px;letter-spacing:.04em;
+  transition:.2s
+}
+.buy-btn:hover{background:#d7cec6;color:#171615;border-color:#d7cec6}
+
+
+/* Responsive layout: phone, tablet and desktop */
+img{max-width:100%;height:auto}
+button,a{-webkit-tap-highlight-color:transparent}
+@media (max-width:1100px){
+  .hero{gap:55px}
+  .nav-inner,section,.hero{max-width:100%;padding-left:28px;padding-right:28px}
+}
+@media (max-width:800px){
+  .nav-inner{padding:14px 18px}
+  .hero{
+    display:flex;flex-direction:column;align-items:flex-start;
+    gap:42px;min-height:auto;padding-top:58px;padding-bottom:65px
+  }
+  .hero > div:first-child{width:100%}
+  .cover{align-self:center;width:min(340px,92vw);max-width:none}
+  h1{font-size:clamp(58px,18vw,88px)}
+  .hero-note{font-size:15px;margin-top:30px}
+  section{padding:65px 20px}
+  .two,.themes,.gallery{grid-template-columns:1fr}
+  .section-title{font-size:clamp(34px,10vw,50px)}
+  .section-lead{font-size:15px}
+  .long-text p,.event p,.theme p,.dark-box p,.film-summary p{font-size:15px}
+  .dark-box,.film-summary{padding:28px 22px}
+  .timeline{padding-left:25px}
+  .event:before{left:-31px}
+  .video{min-height:0}
+  .video-inner{padding:0}
+}
+@media (max-width:480px){
+  .brand{font-size:10px;letter-spacing:.16em}
+  .hero{padding-left:18px;padding-right:18px}
+  section{padding-left:18px;padding-right:18px}
+  .cover{width:min(300px,94vw)}
+  .quote{padding:34px 4px}
+  .quote p{font-size:25px}
+  .gallery figure:first-child,.gallery figure:last-child{min-height:0}
+  .gallery figcaption{font-size:10px}
+  .video{min-height:0}
+  .video h3{font-size:24px}
+}
+
+
+.footer-buy{margin:0 auto 35px;max-width:620px;padding:30px 20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.footer-buy-title{font-family:Georgia,"Times New Roman",serif;font-size:22px;color:#c8beb6;margin-bottom:7px}
+.footer-buy-text{color:#77706a;margin-bottom:18px}
+.footer-buy-btn{display:inline-block;padding:12px 19px;border:1px solid #62574f;color:#d7cec6;font-family:Arial,sans-serif;font-size:12px;letter-spacing:.04em}
+.footer-buy-btn:hover{background:#d7cec6;color:#171615;border-color:#d7cec6}
+
+
+/* --- Cinematic atmosphere & interactions --- */
+html{scroll-behavior:smooth}
+body{overflow-x:hidden}
+body:after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:3;opacity:.08;
+  background:radial-gradient(ellipse at center,transparent 45%,#000 100%);
+}
+.hero{position:relative;overflow:hidden}
+.hero:before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.11;
+  background:
+    linear-gradient(115deg,transparent 0 43%,rgba(210,205,200,.35) 43.2%,transparent 43.5%),
+    linear-gradient(105deg,transparent 0 67%,rgba(210,205,200,.2) 67.2%,transparent 67.45%);
+  transform:translateY(-5%);
+  animation:rain 9s linear infinite;
+}
+.hero>*{position:relative;z-index:1}
+@keyframes rain{from{transform:translateY(-4%)}to{transform:translateY(4%)}}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+.cinematic-line{width:85px;height:1px;background:var(--accent);margin:25px 0}
+.mood-quote{
+  min-height:48vh;display:flex;align-items:center;justify-content:center;text-align:center;
+  padding:90px 20px;background:
+  radial-gradient(ellipse at center,rgba(110,95,83,.16),transparent 60%),var(--bg2);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)
+}
+.mood-quote div{max-width:850px}
+.mood-quote p{font-size:clamp(27px,5vw,55px);font-style:italic;line-height:1.3;color:#cfc6be}
+.mood-quote span{display:block;margin-top:20px;font-family:Arial,sans-serif;font-size:10px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+.gallery figure{cursor:zoom-in;transition:transform .35s ease,opacity .35s ease}
+.gallery figure:hover{transform:translateY(-4px)}
+.lightbox{
+  position:fixed;inset:0;z-index:100;background:rgba(5,5,5,.94);display:none;
+  align-items:center;justify-content:center;padding:25px;cursor:zoom-out
+}
+.lightbox.open{display:flex}
+.lightbox img{max-width:92vw;max-height:88vh;object-fit:contain;box-shadow:0 25px 80px #000}
+.lightbox-close{position:absolute;right:25px;top:15px;color:#ddd;font:30px Arial}
+.compare{width:100%;border-collapse:collapse;margin-top:35px;background:var(--paper);border:1px solid var(--line)}
+.compare th,.compare td{padding:22px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.compare th{font-weight:400;color:#cfc5bd;font-size:18px}
+.compare td{color:var(--muted)}
+.impression textarea{
+  width:100%;min-height:170px;background:#1d1b19;border:1px solid var(--line);
+  color:var(--text);padding:18px;font:16px Georgia,serif;resize:vertical;outline:none
+}
+.impression textarea:focus{border-color:var(--accent)}
+.impression-note{font:11px Arial,sans-serif;color:#69615b;margin-top:10px}
+.characters{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:35px}
+.character{background:var(--paper);border:1px solid var(--line);padding:27px}
+.character strong{display:block;font-size:20px;font-weight:400;margin-bottom:8px}
+.character span{color:var(--muted);font-size:14px}
+@media(max-width:800px){.characters{grid-template-columns:1fr}.compare{font-size:13px}.compare th,.compare td{padding:14px}.mood-quote{min-height:42vh}}
+
+
+/* --- Realistic book reader --- */
+.book-reader{margin-top:42px;background:linear-gradient(180deg,#1b1816,#0d0c0b);border:1px solid var(--line);box-shadow:0 35px 110px rgba(0,0,0,.55);overflow:hidden}
+.book-shell{position:relative;min-height:760px;padding:30px;background:radial-gradient(ellipse at center,rgba(150,127,108,.12),transparent 46%),linear-gradient(180deg,#13110f,#0a0908);display:flex;align-items:center;justify-content:center;perspective:2200px;overflow:hidden}
+.book-bg-grain{position:absolute;inset:0;pointer-events:none;opacity:.045;background-image:radial-gradient(rgba(255,255,255,.65) .5px,transparent .6px);background-size:7px 7px}
+.book-intro{position:relative;width:min(760px,92vw);height:min(560px,68vw);min-height:420px;display:flex;justify-content:center;align-items:center;transform-style:preserve-3d;z-index:2}
+.closed-book{position:relative;width:50%;height:100%;max-height:680px;transform-style:preserve-3d;filter:drop-shadow(0 35px 55px rgba(0,0,0,.65));transition:transform .9s cubic-bezier(.22,.8,.18,1),filter .6s ease}
+.closed-book .cover-front{position:absolute;inset:0;background:#191514;border:1px solid #62564b;transform-origin:left center;backface-visibility:hidden;transform-style:preserve-3d;z-index:5;transition:transform 1.25s cubic-bezier(.2,.77,.2,1)}
+.closed-book .cover-front:before{content:"";position:absolute;inset:11px;border:1px solid rgba(214,202,190,.24);box-shadow:inset 0 0 0 1px rgba(0,0,0,.25)}
+.closed-book .cover-front img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.62) contrast(.97) brightness(.78)}
+.closed-book .cover-front:after{content:"";position:absolute;left:12px;top:50%;width:4px;height:72%;transform:translateY(-50%);background:linear-gradient(#261f1b,#6b5b4d,#261f1b);opacity:.75}
+.closed-book .page-block{position:absolute;inset:9px 7px 9px 12px;background:linear-gradient(90deg,#8d7965 0,#ded0bf 4%,#f4eade 15%,#ece2d6 85%,#b7a48f 100%);box-shadow:inset 0 0 16px rgba(92,71,56,.25);border-radius:1px;z-index:1}
+.closed-book .page-block:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(120,95,78,.06) 0 2px,transparent 2px 7px)}
+.book-intro .book-under{position:absolute;left:12%;right:12%;bottom:2%;height:28px;background:rgba(0,0,0,.35);filter:blur(16px)}
+.open-cta{position:absolute;left:50%;bottom:-68px;transform:translateX(-50%);z-index:20}
+.open-btn{border:1px solid #6c5d51;background:#241f1b;color:#e5ddd5;padding:13px 24px;font:12px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:.25s}
+.open-btn:hover{background:#ddd0c3;color:#171412;transform:translateY(-1px)}
+.book-intro .intro-note{position:absolute;left:50%;top:calc(100% + 8px);transform:translateX(-50%);font:10px Arial,sans-serif;color:#7e746b;white-space:nowrap;letter-spacing:.04em}
+.book-reader.is-open .closed-book .cover-front{transform:rotateY(-168deg);box-shadow:18px 20px 35px rgba(0,0,0,.4)}
+.book-reader.is-open .closed-book{transform:translateX(-25%)}
+.reader-opened{position:absolute;inset:30px;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:scale(.92);transition:opacity .45s ease .4s,transform .8s cubic-bezier(.18,.76,.22,1) .35s}
+.book-reader.is-open .reader-opened{opacity:1;pointer-events:auto;transform:scale(1)}
+.book-spread{position:relative;width:min(1200px,96%);height:min(760px,76vh);display:flex;align-items:stretch;transform-style:preserve-3d;filter:drop-shadow(0 28px 48px rgba(0,0,0,.55))}
+.book-spine{position:absolute;left:50%;top:1.3%;bottom:1.3%;width:3px;transform:translateX(-50%);z-index:15;background:linear-gradient(90deg,rgba(58,43,34,.12),rgba(66,48,38,.78),rgba(255,255,255,.18),rgba(58,43,34,.12));box-shadow:0 0 12px rgba(0,0,0,.45)}
+.spread-page{position:relative;width:50%;height:100%;overflow:hidden;background:#f4ecdf;box-shadow:0 13px 35px rgba(0,0,0,.4)}
+.spread-page.left{border-radius:3px 0 0 3px;transform-origin:right center}
+.spread-page.right{border-radius:0 3px 3px 0;transform-origin:left center}
+.spread-page:after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 14px 0 18px -18px rgba(48,31,22,.7),inset -10px 0 15px -15px rgba(48,31,22,.45)}
+.spread-page img{width:100%;height:100%;object-fit:fill;display:block;user-select:none;-webkit-user-drag:none}
+.turn-sheet{position:absolute;top:0;bottom:0;right:0;width:50%;z-index:30;pointer-events:none;transform-style:preserve-3d;transform-origin:left center;display:none;background:#f4ecdf;box-shadow:0 12px 32px rgba(0,0,0,.4)}
+.turn-sheet .turn-face{position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;background:#f4ecdf}
+.turn-sheet .turn-face img{width:100%;height:100%;object-fit:fill;display:block}
+.turn-sheet .back{transform:rotateY(180deg)}
+.turn-sheet.next{display:block;animation:pageTurnNext .82s cubic-bezier(.22,.78,.2,1) both}
+.turn-sheet.prev{display:block;right:auto;left:0;transform-origin:right center;animation:pageTurnPrev .82s cubic-bezier(.22,.78,.2,1) both}
+@keyframes pageTurnNext{0%{transform:rotateY(0);box-shadow:0 15px 32px rgba(0,0,0,.22)}45%{box-shadow:18px 18px 30px rgba(0,0,0,.42)}100%{transform:rotateY(-180deg);box-shadow:0 15px 22px rgba(0,0,0,.05)}}
+@keyframes pageTurnPrev{0%{transform:rotateY(0);box-shadow:0 15px 32px rgba(0,0,0,.22)}45%{box-shadow:-18px 18px 30px rgba(0,0,0,.42)}100%{transform:rotateY(180deg);box-shadow:0 15px 22px rgba(0,0,0,.05)}}
+.book-reader.is-open .book-intro{opacity:0;pointer-events:none;transition:opacity .35s ease .2s}
+.reader-ui{position:relative;z-index:40;background:#141210;border-top:1px solid var(--line)}
+.reader-top{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:15px 18px;border-bottom:1px solid var(--line)}
+.reader-title{font-family:Arial,sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent2)}
+.reader-status{font:11px Arial,sans-serif;color:var(--muted)}
+.reader-progress{height:2px;background:#292421}.reader-progress span{display:block;height:100%;width:0;background:var(--accent2);transition:width .3s ease}
+.reader-controls{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:15px 18px}
+.reader-btn,.reader-action{border:1px solid #5a4f46;background:#221e1b;color:#dcd2ca;padding:11px 16px;font:11px Arial,sans-serif;letter-spacing:.04em;cursor:pointer;transition:.2s}
+.reader-btn:hover,.reader-action:hover{background:#d9cec4;color:#171412;border-color:#d9cec4}
+.reader-btn:disabled{opacity:.28;cursor:not-allowed}.reader-page{font:11px Arial,sans-serif;color:#91877f;min-width:90px;text-align:center}
+.reader-hints{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;padding:0 18px 14px;color:#746a63;font:10px Arial,sans-serif}.reader-hints b{color:#a99f96;font-weight:400}
+.reader-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:0 18px 20px}.reader-note{margin-top:14px;text-align:center;color:#766d65;font:10px Arial,sans-serif}
+.sound-state{color:#8f857d}.sound-state.on{color:#cdbdb0}
+@media(max-width:900px){
+  .book-shell{min-height:700px;padding:14px}.book-intro{width:min(680px,94vw);height:min(500px,72vw)}
+  .reader-opened{inset:14px}.book-spread{height:min(620px,74vh);width:100%}
+}
+@media(max-width:700px){
+  .book-shell{min-height:590px}.book-intro{height:420px;min-height:360px;width:min(500px,94vw)}
+  .closed-book{width:58%}.open-cta{bottom:-56px}.intro-note{font-size:9px}
+  .book-spread{height:auto;aspect-ratio:1.42/1}.spread-page img{object-fit:fill}
+  .reader-controls{padding:12px 10px}.reader-btn{flex:1 1 40%;padding:12px 9px}.reader-page{order:-1;flex-basis:100%}
+}
+@media(max-width:480px){
+  .book-shell{min-height:500px;padding:7px}.book-intro{height:320px}.closed-book{width:61%}.open-btn{padding:11px 18px}
+  .reader-opened{inset:7px}.book-spread{aspect-ratio:1.33/1}
+  .reader-top{padding:12px 11px}.reader-actions{padding-bottom:14px}
+}
+
+/* --- 3-language system --- */
+.lang-switch{
+  display:flex;align-items:center;gap:5px;margin-left:auto;margin-right:22px;
+  font-family:Arial,sans-serif;
+}
+.lang-btn{
+  border:1px solid var(--line);background:transparent;color:var(--muted);
+  padding:7px 9px;font:10px Arial,sans-serif;letter-spacing:.08em;cursor:pointer;
+  transition:.2s;border-radius:2px;
+}
+.lang-btn:hover{color:var(--text);border-color:var(--accent2)}
+.lang-btn.active{background:var(--accent2);color:var(--black);border-color:var(--accent2)}
+@media(max-width:800px){
+  .lang-switch{margin-left:auto;margin-right:10px;gap:3px}
+  .lang-btn{padding:6px 7px;font-size:9px}
+}
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">Хачико</a>
+
+<div class="lang-switch" id="langSwitch" aria-label="Language">
+  <button class="lang-btn active" type="button" data-lang="kk">ҚАЗ</button>
+  <button class="lang-btn" type="button" data-lang="ru">РУС</button>
+  <button class="lang-btn" type="button" data-lang="en">ENG</button>
+</div>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Мәзірді ашу" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="navlinks">
+      <a href="#about">Шығарма</a><a href="#story">Оқиға</a><a href="#gallery">Фото</a><a href="#film">Фильм</a><a href="#video">Видео</a><a href="#reader">Оқу</a><a href="#comparison">Кітап / Фильм</a>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">Шығарма</a>
+  <a href="#story">Оқиға</a>
+  <a href="#gallery">Фото</a>
+  <a href="#film">Фильм</a>
+  <a href="#video">Видео</a>
+  <a href="#reader">Оқу</a>
+  <a href="#comparison">Кітап / Фильм</a>
+</div>
+
+<header class="hero" id="top">
+  <div>
+    <div class="eyebrow">Лесли Ньюман</div>
+    <h1>Хачико</h1>
+    <div class="subtitle">Иесін күткен ит</div>
+    <div class="author">Адалдық, сағыныш және күту туралы шығарма</div><div class="cinematic-line"></div>
+    <p class="hero-note">
+      Кейде адамның өмірінде қысқа ғана уақыт болған бір кездесу бүкіл ғұмырға жететін із қалдырады.
+      Хачико туралы оқиға — дәл сондай үнсіз, бірақ жүрекке ауыр тиетін адалдықтың тарихы.
+    </p>
+  </div>
+  
+
+
+  <div class="cover">
+    <img src="hachiko-cover.jpg" alt="Хачико — Иесін күткен ит кітабының мұқабасы">
+  </div>
+</header>
+
+<div class="divider"></div>
+
+<section class="mood-quote reveal">
+  <div>
+    <p>«Ол күн сайын күтті. Себебі оның жүрегінде қоштасу болған жоқ.»</p>
+    <span>Хатиконың тарихы</span>
+  </div>
+</section>
+
+
+<section id="about">
+  <div class="eyebrow">01 — Шығарма туралы</div>
+  <div class="two">
+    <div>
+      <h2 class="section-title">Бір иттің ұзақ күткені</h2>
+      <p class="section-lead">
+        «Хачико — Иесін күткен ит» атауының өзінде шығарманың негізгі сезімі жатыр:
+        күту. Бұл жай ғана біреуді белгілі бір жерде күту емес, өткен күнге,
+        сүйікті адамға және үзілмеген байланысқа деген адалдық.
+      </p>
+    </div>
+    <div class="long-text">
+      <p>
+        Хачиконың тарихы адам мен жануар арасындағы байланыстың қаншалықты терең
+        болуы мүмкін екенін көрсетеді. Ит өз иесін күнделікті өмірінің маңызды
+        бөлігі ретінде қабылдайды. Сол себепті иесі жоқ болған кезде де оның
+        күнделікті әдеті мен күтуі жоғалмайды.
+      </p>
+      <p>
+        Шығармадағы ең әсерлі нәрсе — Хачиконың көп сөйлемей-ақ сезімді жеткізуі.
+        Оның күтуі арқылы оқырман сағыныштың, жалғыздықтың және адалдықтың
+        мағынасын өздігінше сезінеді.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="story">
+  <div class="eyebrow">02 — Оқиға желісі</div>
+  <h2 class="section-title">Хачиконың тарихы</h2>
+  <p class="section-lead">
+    Төмендегі мәтін шығарманың толық мәтіні емес, оқиғаны түсінуге арналған кеңейтілген мазмұндық баяндау.
+  </p>
+
+  <div class="timeline">
+    <div class="event">
+      <h3>Алғашқы кездесу</h3>
+      <p>
+        Хачиконың өміріндегі ең маңызды кезеңдердің бірі — оның иесімен жақын
+        байланыс орнатуы. Күнделікті бірге өткізілген уақыт, үйге қайту,
+        таныс дыбыстар мен әдеттер иттің өмірінде ерекше орын алады.
+      </p>
+    </div>
+    <div class="event">
+      <h3>Күн сайынғы әдет</h3>
+      <p>
+        Уақыт өте келе белгілі бір тәртіп қалыптасады. Хачико иесін шығарып
+        салуды және оны қайта қарсы алуды үйренеді. Қарапайым болып көрінетін
+        осы күнделікті әрекет олардың арасындағы байланыстың белгісіне айналады.
+      </p>
+    </div>
+    <div class="event">
+      <h3>Күтпеген айырылысу</h3>
+      <p>
+        Бір күні бұл қалыпты өмір бұзылады. Хачико күткен адам бұрынғыдай
+        оралмайды. Бірақ ит мұны адам сияқты түсіндіріп, қабылдай алмайды.
+        Ол өзінің бұрынғы әдетіне сүйеніп, күтуін жалғастыра береді.
+      </p>
+    </div>
+    <div class="event">
+      <h3>Ұзақ күту</h3>
+      <p>
+        Күндер өткен сайын күту бұрынғыдан да мұңды сипат алады. Айналадағы
+        адамдар өзгеруі мүмкін, уақыт өтуі мүмкін, бірақ Хачиконың ішкі
+        адалдығы өзгермейді. Оның әрекеті адамдардың назарын аударады.
+      </p>
+    </div>
+    <div class="event">
+      <h3>Адамдардың есінде қалған Хачико</h3>
+      <p>
+        Хачиконың тағдыры бір отбасының ғана тарихы болып қалмайды. Оның
+        адалдығы туралы адамдар біле бастайды. Иттің бейнесі адамның
+        жақын жанынан айырылған кездегі сезімдерін де еске салады.
+      </p>
+    </div>
+  </div>
+
+  <div class="quote">
+    <p>«Кейде күту — ұмыта алмағандықтан емес, ұмығың келмегендіктен жалғасады.»</p>
+  </div>
+
+<div class="characters reveal">
+  <div class="character">
+    <strong>Хатико</strong>
+    <span>Иесіне деген адалдығы оқиғаның негізгі өзегіне айналған ит.</span>
+  </div>
+  <div class="character">
+    <strong>Профессор</strong>
+    <span>Хатиконың өміріндегі ең маңызды адам және оның жақын серігі.</span>
+  </div>
+  <div class="character">
+    <strong>Адамдар</strong>
+    <span>Хатиконың ұзақ күтуіне куә болып, оның тарихын кейінгі ұрпаққа жеткізген жандар.</span>
+  </div>
+</div>
+
+</section>
+
+<section id="meaning">
+  <div class="eyebrow">03 — Негізгі ойлар</div>
+  <h2 class="section-title">Бұл оқиға не туралы ойландырады?</h2>
+  <p class="section-lead">
+    Хачико туралы әңгімені тек жануар туралы қайғылы оқиға ретінде емес,
+    адамның сезімі мен естелігі туралы шығарма ретінде де қарастыруға болады.
+  </p>
+
+  <div class="themes" style="margin-top:40px">
+    <article class="theme">
+      <h3>Адалдық</h3>
+      <p>
+        Хачиконың әрекеті адалдықтың уақытқа тәуелді емес екенін көрсететін
+        символ ретінде қабылданады. Ол үшін бұрынғы байланыс жоғалып кетпейді.
+      </p>
+    </article>
+    <article class="theme">
+      <h3>Сағыныш</h3>
+      <p>
+        Күту арқылы шығарма жақын адамнан айырылғаннан кейінгі бос кеңістікті
+        сезіндіреді. Сағыныш бұл жерде сөзбен емес, әрекетпен беріледі.
+      </p>
+    </article>
+    <article class="theme">
+      <h3>Естелік</h3>
+      <p>
+        Адам өмірден кеткеннен кейін оның күнделікті өмірдегі орны босап қалады.
+        Бірақ естелік сол адамды адамның жүрегінде сақтап қалуы мүмкін.
+      </p>
+    </article>
+    <article class="theme">
+      <h3>Жалғыздық</h3>
+      <p>
+        Хачиконың жалғыз күтуі оқырманға үнсіз жалғыздықты сезіндіреді.
+        Оның айналасында адамдар болғанымен, күткен адамының орны бөлек.
+      </p>
+    </article>
+  </div>
+</section>
+
+
+<section id="gallery">
+  <div class="eyebrow">04 — Хачиконың бейнесі</div>
+  <h2 class="section-title">Күту. Үнсіздік. Естелік.</h2>
+  <p class="section-lead">
+    Хачиконың бейнесін әр кезең әртүрлі көрсетеді. Бір суретте ол жалғыздықпен
+    үнсіз күтіп отырса, екіншісінде оның тарихы естелікке айналғанын көреміз.
+  </p>
+
+  <div class="gallery">
+    <figure>
+      <img src="hachiko-waiting.jpg" alt="Хачиконың үнсіз күтіп жатқан бейнесі">
+      <figcaption>Хачиконың күтуі — жалғыздық пен адалдықтың үнсіз көрінісі.</figcaption>
+    </figure>
+    <figure>
+      <img src="hachiko-statue.jpg" alt="Хачикоға арналған көркем ескерткіш бейнесі">
+      <figcaption>Хачиконың бейнесі — ұмытылмаған адалдықтың символы.</figcaption>
+    </figure>
+  </div>
+</section>
+
+
+<section id="film">
+  <div class="eyebrow">05 — Фильм</div>
+  <h2 class="section-title">«Хатико: Самый верный друг»</h2>
+  <p class="section-lead">
+    Фильм рассказывает ту же историю преданности, но показывает её через отношения
+    Хатико и его хозяина и постепенно раскрывает, как одна встреча может изменить
+    жизнь человека и целого города.
+  </p>
+
+  <div class="film-summary">
+    <h3>Краткий пересказ фильма</h3>
+    <p>
+      История начинается со встречи профессора Паркера Уилсона и потерявшегося
+      щенка породы акита. Профессор не собирался оставлять собаку у себя, однако
+      между ними быстро возникает особая привязанность. Щенка называют Хатико,
+      и со временем он становится настоящим членом семьи.
+    </p>
+    <p>
+      Каждый день Хатико провожает хозяина до железнодорожного вокзала, когда тот
+      отправляется на работу, а затем приходит туда снова, чтобы встретить его
+      вечером. Для собаки это становится привычным ритуалом, который связывает
+      её с любимым человеком.
+    </p>
+    <p>
+      Однажды профессор неожиданно умирает на работе и больше не возвращается
+      домой. Хатико не понимает причины его отсутствия. На следующий день он
+      снова приходит на вокзал и продолжает ждать. Проходят дни, месяцы и годы,
+      но собака не отказывается от своей привычки.
+    </p>
+    <p>
+      Люди на вокзале постепенно замечают Хатико. Одни начинают заботиться о нём,
+      другие просто наблюдают за его ежедневным ожиданием. История собаки
+      становится известной далеко за пределами вокзала, потому что в её поведении
+      люди видят любовь, верность и память о человеке, которого она потеряла.
+    </p>
+    <p>
+      Годы ожидания делают Хатико символом преданности. Финал фильма особенно
+      эмоционален: он напоминает, что настоящая привязанность не всегда требует
+      слов и что память о близком человеке может сохраняться очень долго.
+    </p>
+    <div class="film-note">
+      Важно: этот раздел посвящён именно фильму и не является полным текстом книги.
+      Здесь дан краткий пересказ основных событий и идеи фильма.
+    </div>
+  </div>
+</section>
+
+<section id="video">
+  <div class="eyebrow">06 — Бейнематериал</div>
+  <h2 class="section-title">Хачико туралы видео</h2>
+  <p class="section-lead" style="margin-bottom:35px">
+    Видео енді тікелей осы сайттың ішінде ашылады. Терезе экран еніне толық бейімделеді.
+  </p>
+
+  <div class="video">
+    <div class="video-inner">
+      <div class="video-youtube">
+        <iframe
+          src="https://www.youtube.com/embed/O8Co72tFzG8"
+          title="Хачико туралы видео"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-actions">
+        <a class="video-link" href="https://youtu.be/O8Co72tFzG8" target="_blank" rel="noopener noreferrer">YouTube-та ашу →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="reader" class="reveal">
+  <div class="eyebrow">07 — Онлайн кітап</div>
+  <h2 class="section-title">Кітапты ашу</h2>
+  <p class="section-lead">
+    Енді бұл жай ғана PDF емес. Кітаптың мұқабасын басып, оны шын кітап сияқты ашыңыз.
+    <b>A</b> — алдыңғы бет, <b>D</b> — келесі бет, ал телефонда парақты саусақпен сырғытыңыз.
+  </p>
+
+  <div class="book-reader" id="bookReader" aria-label="Хачико онлайн кітап">
+    <div class="book-shell" id="bookShell">
+      <div class="book-bg-grain"></div>
+
+      <div class="book-intro" id="bookIntro">
+        <div class="book-under"></div>
+        <div class="closed-book">
+          <div class="page-block"></div>
+          <div class="cover-front" id="coverFront">
+            <img src="hachiko-cover.jpg" alt="Хачико — Иесін күткен ит">
+          </div>
+        </div>
+        <div class="open-cta">
+          <button class="open-btn" id="openBook" type="button">Кітапты ашу</button>
+          <div class="intro-note">Бір басқанда кітаптың дыбысы естіледі</div>
+        </div>
+      </div>
+
+      <div class="reader-opened">
+        <div class="book-spread" id="bookSpread">
+          <div class="spread-page left"><img id="leftPage" src="page-01.webp" alt="Хачико кітабы — 1-бет"></div>
+          <div class="spread-page right"><img id="rightPage" src="page-02.webp" alt="Хачико кітабы — 2-бет"></div>
+          <div class="book-spine"></div>
+          <div class="turn-sheet" id="turnSheet">
+            <div class="turn-face front"><img id="turnFront" src="page-02.webp" alt=""></div>
+            <div class="turn-face back"><img id="turnBack" src="page-03.webp" alt=""></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reader-ui">
+      <div class="reader-top">
+        <div class="reader-title">HACHIKO · BOOK EXPERIENCE</div>
+        <div class="reader-status" id="readerStatus">Беттер 1–2 / 22</div>
+      </div>
+      <div class="reader-progress"><span id="readerProgress"></span></div>
+      <div class="reader-controls">
+        <button class="reader-btn" id="prevPage" type="button">← Алдыңғы</button>
+        <div class="reader-page" id="readerPage">1–2 / 22</div>
+        <button class="reader-btn" id="nextPage" type="button">Келесі →</button>
+      </div>
+      <div class="reader-hints">
+        <span>Компьютер: <b>A</b> / <b>D</b></span>
+        <span>Пернелер: <b>←</b> / <b>→</b></span>
+        <span>Телефон: сырғыту</span>
+        <span class="sound-state" id="soundState">Дыбыс: ашқанда қосылады</span>
+      </div>
+      <div class="reader-actions">
+        <a class="reader-action" href="hachiko-book.pdf" download>PDF</a>
+        <button class="reader-action" id="readerFullscreen" type="button">Толық экран</button>
+        <button class="reader-action" id="soundToggle" type="button">Дыбыс: Қосулы</button>
+      </div>
+    </div>
+  </div>
+  <div class="reader-note">Внутри использованы страницы загруженного тобой PDF; сам PDF остается доступным отдельно.</div>
+</section>
+
+<section id="comparison" class="reveal">
+  <div class="eyebrow">08 — Кітап және фильм</div>
+  <h2 class="section-title">Екі нұсқаны бірге түсіну</h2>
+  <p class="section-lead">
+    Кітап пен фильм бір оқиғаның негізіндегі екі түрлі баяндау тәсілі.
+    Бірі мәтін арқылы ойға көбірек орын берсе, фильм сезімді көрініс, музыка
+    және актерлік ойын арқылы жеткізеді.
+  </p>
+  <table class="compare">
+    <tr><th>Кітап</th><th>Фильм</th></tr>
+    <tr><td>Оқырман оқиғаны өз қиялымен елестетеді.</td><td>Оқиға экрандағы көріністер мен дыбыс арқылы беріледі.</td></tr>
+    <tr><td>Мәтін кейіпкерлердің ішкі сезімдерін баяндауға мүмкіндік береді.</td><td>Сезім көбіне көзқарас, әрекет, музыка және үнсіздік арқылы көрсетіледі.</td></tr>
+    <tr><td>Оқырман оқиғаның қарқынын өзі анықтай алады.</td><td>Фильм оқиғаның уақытын режиссерлік монтаж арқылы белгілейді.</td></tr>
+  </table>
+</section>
+
+<section id="impression" class="impression reveal">
+  <div class="eyebrow">09 — Менің әсерім</div>
+  <h2 class="section-title">Бұл жерге өз ойыңды жаз</h2>
+  <p class="section-lead">
+    Оқып немесе көріп болғаннан кейін өз әсеріңді осында жазып қоюға болады.
+    Бұл блок сайтты жеке оқу жобасына айналдырады.
+  </p>
+  <div style="margin-top:28px">
+    <textarea placeholder="Хатиконың оқиғасы маған ... туралы ой салды."></textarea>
+    <div class="impression-note">Жазған мәтініңіз осы браузерде автоматты түрде сақталады.</div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">10 — Қорытынды</div>
+  <div class="dark-box">
+    <h3>Хачиконың үнсіз сабағы</h3>
+    <p>
+      Хачиконың тарихы үлкен сөздерді қажет етпейді. Оның күтуі адамның
+      жүрегіндегі ең қарапайым, бірақ ең ауыр сезімдердің бірін көрсетеді:
+      бір кездері қасыңда болған адамды сағыну. Уақыт өткен сайын көп нәрсе
+      өзгереді, бірақ шынайы байланыс адамның жадында қала береді.
+    </p>
+    <p style="margin-top:16px">
+      Сондықтан бұл оқиға оқырманға адалдықтың бағасы, жақын адамдарды қадірлеу
+      және бірге өткізілген уақыттың маңызы туралы ой салады.
+    </p>
+  </div>
+</section>
+
+
+<div class="lightbox" id="lightbox" aria-label="Үлкейтілген фото">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Жабу">×</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<footer class="footer">
+<div class="footer-buy">
+  <div class="footer-buy-title">Егер Хачиконың оқиғасы сізге ұнаса</div>
+  <div class="footer-buy-text">Кітаптың толық нұсқасын сатып алып, оқып көріңіз.</div>
+  <a class="footer-buy-btn" href="https://kaspi.kz/shop/p/hachiko-ies-n-k-tken-it-109680164/?srsltid=AU7gw4VvymiJYpfxZ48vRa0orsOz7wrrJleSHj0Xg4b3fsTyylFrYaOn" target="_blank" rel="noopener noreferrer">
+    Кітапты сатып алып, толық оқыңыз →
+  </a>
+</div>
+
+  Хачико — Иесін күткен ит · Лесли Ньюман<br>
+  Оқу жобасына арналған веб-сайт
+</footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".reveal");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.12});
+  items.forEach(el => observer.observe(el));
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const close = () => lightbox.classList.remove("open");
+
+  document.querySelectorAll(".gallery img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add("open");
+    });
+  });
+  document.getElementById("lightboxClose").addEventListener("click", close);
+  lightbox.addEventListener("click", e => { if(e.target === lightbox) close(); });
+  document.addEventListener("keydown", e => { if(e.key === "Escape") close(); });
+
+  /* Mobile navigation */
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const closeMobileMenu = () => {
+    mobileMenu.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  };
+  menuToggle.addEventListener("click", () => {
+    const open = mobileMenu.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(open));
+  });
+  mobileMenu.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMobileMenu));
+
+  /* Save reader impression in this browser */
+  const impression = document.querySelector(".impression textarea");
+  const impressionKey = "hachikoImpression";
+  const savedImpression = localStorage.getItem(impressionKey);
+  if (savedImpression !== null) impression.value = savedImpression;
+  impression.addEventListener("input", () => localStorage.setItem(impressionKey, impression.value));
+
+  /* Realistic book reader */
+  const reader = document.getElementById("bookReader");
+  const openBook = document.getElementById("openBook");
+  const leftPage = document.getElementById("leftPage");
+  const rightPage = document.getElementById("rightPage");
+  const turnSheet = document.getElementById("turnSheet");
+  const turnFront = document.getElementById("turnFront");
+  const turnBack = document.getElementById("turnBack");
+  const prevBtn = document.getElementById("prevPage");
+  const nextBtn = document.getElementById("nextPage");
+  const pageLabel = document.getElementById("readerPage");
+  const status = document.getElementById("readerStatus");
+  const progress = document.getElementById("readerProgress");
+  const spread = document.getElementById("bookSpread");
+  const fullscreenBtn = document.getElementById("readerFullscreen");
+  const soundToggle = document.getElementById("soundToggle");
+  const soundState = document.getElementById("soundState");
+
+  const basePages = Array.from({length:22}, (_, i) => `page-${String(i+1).padStart(2,'0')}.webp`);
+  const localizedPage = (base, lang) => {
+    if(!lang || lang === "kk") return base;
+    const dot = base.lastIndexOf(".");
+    return base.slice(0,dot) + "-" + lang + base.slice(dot);
+  };
+  let current = 1; // left page in the visible spread
+  let busy = false;
+  let soundOn = true;
+  window.HACHIKO_SOUND_ON = soundOn;
+  window.HACHIKO_BOOK_CURRENT = current;
+  window.HACHIKO_BOOK_BUSY = busy;
+  let audioCtx = null;
+
+  const ensureAudio = () => {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === "suspended") audioCtx.resume();
+  };
+
+  const paperSound = (kind="turn") => {
+    if (!soundOn) return;
+    try {
+      ensureAudio();
+      const now = audioCtx.currentTime;
+      const dur = kind === "open" ? .7 : .32;
+      const buffer = audioCtx.createBuffer(1, Math.floor(audioCtx.sampleRate * dur), audioCtx.sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let i=0;i<data.length;i++) {
+        const env = Math.pow(1 - i/data.length, kind === "open" ? 1.3 : 1.9);
+        data[i] = (Math.random()*2-1) * env * (kind === "open" ? .24 : .16);
+      }
+      const src = audioCtx.createBufferSource();
+      const filter = audioCtx.createBiquadFilter();
+      const gain = audioCtx.createGain();
+      filter.type = "bandpass";
+      filter.frequency.value = kind === "open" ? 1650 : 2100;
+      filter.Q.value = .7;
+      gain.gain.value = kind === "open" ? .23 : .16;
+      src.buffer = buffer;
+      src.connect(filter).connect(gain).connect(audioCtx.destination);
+      src.start(now);
+
+      const thump = audioCtx.createOscillator();
+      const tg = audioCtx.createGain();
+      thump.type = "sine";
+      thump.frequency.setValueAtTime(kind === "open" ? 95 : 120, now);
+      thump.frequency.exponentialRampToValueAtTime(55, now + (kind === "open" ? .16 : .09));
+      tg.gain.setValueAtTime(kind === "open" ? .08 : .045, now);
+      tg.gain.exponentialRampToValueAtTime(.0001, now + (kind === "open" ? .2 : .1));
+      thump.connect(tg).connect(audioCtx.destination);
+      thump.start(now); thump.stop(now + (kind === "open" ? .2 : .1));
+    } catch(err) { /* sound is optional */ }
+  };
+
+  const getPages = () => {
+    const lang = localStorage.getItem("hachikoLanguage") || "kk";
+    return basePages.map(p => localizedPage(p, lang));
+  };
+  const preload = (n) => {
+    const pages = getPages();
+    if (n < 1 || n > pages.length) return;
+    const img = new Image();
+    img.onerror = () => { img.onerror = null; img.src = basePages[n-1]; };
+    img.src = pages[n-1];
+  };
+  const preloadAround = () => {
+    [current-1,current,current+1,current+2].forEach(preload);
+  };
+
+  const updateUI = () => {
+    const pages = getPages();
+    window.HACHIKO_BOOK_TOTAL = pages.length;
+    window.HACHIKO_BOOK_CURRENT = current;
+    window.HACHIKO_BOOK_BUSY = busy;
+    const right = Math.min(current + 1, pages.length);
+    const label = current === right ? `${current} / ${pages.length}` : `${current}–${right} / ${pages.length}`;
+    pageLabel.textContent = label;
+    status.textContent = `Беттер ${label}`;
+    progress.style.width = `${(Math.max(current,1) / pages.length) * 100}%`;
+    prevBtn.disabled = current <= 1 || busy;
+    nextBtn.disabled = current >= pages.length || busy;
+  };
+
+  const setSpread = () => {
+    const pages = getPages();
+    const left = pages[current-1];
+    const right = pages[current] || "";
+    leftPage.onerror = () => { leftPage.onerror = null; leftPage.src = basePages[current-1]; };
+    leftPage.src = left;
+    leftPage.alt = `Hachiko — ${current}-page`;
+    if (right) {
+      rightPage.onerror = () => { rightPage.onerror = null; rightPage.src = basePages[current]; };
+      rightPage.src = right; rightPage.style.visibility = "visible";
+    }
+    else { rightPage.style.visibility = "hidden"; }
+    preloadAround(); updateUI();
+  };
+
+  const turn = (dir) => {
+    const pages = getPages();
+    if (!reader.classList.contains("is-open") || busy) return;
+    const target = current + (dir === "next" ? 1 : -1);
+    if (target < 1 || target > pages.length) return;
+    busy = true; updateUI(); paperSound("turn");
+
+    if (dir === "next") {
+      const oldRight = Math.min(current + 1, pages.length);
+      const newRight = Math.min(target + 1, pages.length);
+      turnFront.onerror = () => { turnFront.onerror = null; turnFront.src = basePages[oldRight - 1]; };
+      turnBack.onerror = () => { turnBack.onerror = null; turnBack.src = basePages[target - 1]; };
+      turnFront.src = pages[oldRight - 1];
+      turnBack.src = pages[target - 1];
+      turnSheet.className = "turn-sheet next";
+      turnSheet.style.display = "block";
+      requestAnimationFrame(() => {});
+      setTimeout(() => {
+        current = target; setSpread();
+      }, 385);
+    } else {
+      const oldLeft = current;
+      const newLeft = target;
+      turnFront.onerror = () => { turnFront.onerror = null; turnFront.src = basePages[oldLeft - 1]; };
+      turnBack.onerror = () => { turnBack.onerror = null; turnBack.src = basePages[Math.min(current, pages.length) - 1]; };
+      turnFront.src = pages[oldLeft - 1];
+      turnBack.src = pages[Math.min(current, pages.length) - 1];
+      turnSheet.className = "turn-sheet prev";
+      turnSheet.style.display = "block";
+      setTimeout(() => {
+        current = target; setSpread();
+      }, 385);
+    }
+
+    setTimeout(() => {
+      turnSheet.className = "turn-sheet";
+      turnSheet.style.display = "none";
+      busy = false; updateUI();
+    }, 850);
+  };
+
+  openBook.addEventListener("click", () => {
+    ensureAudio();
+    paperSound("open");
+    reader.classList.add("is-open");
+    setTimeout(() => { document.getElementById("reader").scrollIntoView({behavior:"smooth",block:"center"}); }, 250);
+  });
+
+  prevBtn.addEventListener("click", () => turn("prev"));
+  nextBtn.addEventListener("click", () => turn("next"));
+
+  document.addEventListener("keydown", (e) => {
+    const tag = (e.target.tagName || "").toLowerCase();
+    if (["input","textarea","select","button"].includes(tag)) return;
+    if (!reader.classList.contains("is-open")) return;
+    const key = e.key.toLowerCase();
+    if (key === "a" || e.key === "ArrowLeft") { e.preventDefault(); turn("prev"); }
+    if (key === "d" || e.key === "ArrowRight") { e.preventDefault(); turn("next"); }
+  });
+
+  let touchStartX = null;
+  let touchStartY = null;
+  spread.addEventListener("touchstart", (e) => {
+    if (e.touches.length !== 1) return;
+    touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY;
+  }, {passive:true});
+  spread.addEventListener("touchend", (e) => {
+    if (touchStartX === null || e.changedTouches.length !== 1) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    touchStartX = touchStartY = null;
+    if (Math.abs(dx) < 42 || Math.abs(dx) < Math.abs(dy)*1.2) return;
+    turn(dx < 0 ? "next" : "prev");
+  }, {passive:true});
+
+  fullscreenBtn.addEventListener("click", async () => {
+    try {
+      if (!document.fullscreenElement) await reader.requestFullscreen();
+      else await document.exitFullscreen();
+    } catch(err) { console.warn(err); }
+  });
+
+  soundToggle.addEventListener("click", () => {
+    soundOn = !soundOn;
+    window.HACHIKO_SOUND_ON = soundOn;
+    const lang = localStorage.getItem("hachikoLanguage") || "kk";
+    const t = window.HACHIKO_TRANSLATIONS && window.HACHIKO_TRANSLATIONS[lang];
+    soundToggle.textContent = soundOn ? t.soundOn : t.soundOff;
+    soundState.textContent = soundOn ? t.soundOpen : t.soundOff;
+    soundState.classList.toggle("on", soundOn);
+    if (soundOn) { ensureAudio(); paperSound("turn"); }
+  });
+
+
+  window.HACHIKO_READER_API = {
+    setLanguage: (lang) => {
+      setSpread();
+      updateUI();
+    }
+  };
+
+  setSpread();
+  updateUI();
+
+
+});
+</script>
+
+<script>
+/* ==========================================================
+   HACHIKO — ҚАЗ / РУС / ENG
+   Text, metadata, alt/ARIA, placeholders and image assets.
+   Localized images are optional:
+   hachiko-cover-kk.jpg / hachiko-cover-ru.jpg / hachiko-cover-en.jpg
+   hachiko-waiting-kk.jpg ... 
+   page-01-kk.webp / page-01-ru.webp / page-01-en.webp ... page-22...
+   The original image is used automatically if a localized file
+   does not exist.
+   ========================================================== */
+(function(){
+  const T = {
+    kk: {
+      docTitle: "Хачико — Иесін күткен ит",
+      metaDescription: "Хачико — Иесін күткен ит. Лесли Ньюманның шығармасына арналған оқу жобасы.",
+      nav: ["Шығарма","Оқиға","Фото","Фильм","Видео","Оқу","Кітап / Фильм"],
+      menuAria: "Мәзірді ашу",
+      heroEyebrow: "Лесли Ньюман",
+      heroSubtitle: "Иесін күткен ит",
+      heroAuthor: "Адалдық, сағыныш және күту туралы шығарма",
+      heroNote: "Кейде адамның өмірінде қысқа ғана уақыт болған бір кездесу бүкіл ғұмырға жететін із қалдырады. Хачико туралы оқиға — дәл сондай үнсіз, бірақ жүрекке ауыр тиетін адалдықтың тарихы.",
+      moodQuote: "«Ол күн сайын күтті. Себебі оның жүрегінде қоштасу болған жоқ.»",
+      moodLabel: "Хатиконың тарихы",
+      aboutEyebrow: "01 — Шығарма туралы",
+      aboutTitle: "Бір иттің ұзақ күткені",
+      aboutLead: "«Хачико — Иесін күткен ит» атауының өзінде шығарманың негізгі сезімі жатыр: күту. Бұл жай ғана біреуді белгілі бір жерде күту емес, өткен күнге, сүйікті адамға және үзілмеген байланысқа деген адалдық.",
+      aboutP1: "Хачиконың тарихы адам мен жануар арасындағы байланыстың қаншалықты терең болуы мүмкін екенін көрсетеді. Ит өз иесін күнделікті өмірінің маңызды бөлігі ретінде қабылдайды. Сол себепті иесі жоқ болған кезде де оның күнделікті әдеті мен күтуі жоғалмайды.",
+      aboutP2: "Шығармадағы ең әсерлі нәрсе — Хачиконың көп сөйлемей-ақ сезімді жеткізуі. Оның күтуі арқылы оқырман сағыныштың, жалғыздықтың және адалдықтың мағынасын өздігінше сезінеді.",
+      storyEyebrow: "02 — Оқиға желісі",
+      storyTitle: "Хачиконың тарихы",
+      storyLead: "Төмендегі мәтін шығарманың толық мәтіні емес, оқиғаны түсінуге арналған кеңейтілген мазмұндық баяндау.",
+      events: [
+        ["Алғашқы кездесу","Хачиконың өміріндегі ең маңызды кезеңдердің бірі — оның иесімен жақын байланыс орнатуы. Күнделікті бірге өткізілген уақыт, үйге қайту, таныс дыбыстар мен әдеттер иттің өмірінде ерекше орын алады."],
+        ["Күн сайынғы әдет","Уақыт өте келе белгілі бір тәртіп қалыптасады. Хачико иесін шығарып салуды және оны қайта қарсы алуды үйренеді. Қарапайым болып көрінетін осы күнделікті әрекет олардың арасындағы байланыстың белгісіне айналады."],
+        ["Күтпеген айырылысу","Бір күні бұл қалыпты өмір бұзылады. Хачико күткен адам бұрынғыдай оралмайды. Бірақ ит мұны адам сияқты түсіндіріп, қабылдай алмайды. Ол өзінің бұрынғы әдетіне сүйеніп, күтуін жалғастыра береді."],
+        ["Ұзақ күту","Күндер өткен сайын күту бұрынғыдан да мұңды сипат алады. Айналадағы адамдар өзгеруі мүмкін, уақыт өтуі мүмкін, бірақ Хачиконың ішкі адалдығы өзгермейді. Оның әрекеті адамдардың назарын аударады."],
+        ["Адамдардың есінде қалған Хачико","Хачиконың тағдыры бір отбасының ғана тарихы болып қалмайды. Оның адалдығы туралы адамдар біле бастайды. Иттің бейнесі адамның жақын жанынан айырылған кездегі сезімдерін де еске салады."]
+      ],
+      storyQuote: "«Кейде күту — ұмыта алмағандықтан емес, ұмығың келмегендіктен жалғасады.»",
+      characters: [
+        ["Хатико","Иесіне деген адалдығы оқиғаның негізгі өзегіне айналған ит."],
+        ["Профессор","Хатиконың өміріндегі ең маңызды адам және оның жақын серігі."],
+        ["Адамдар","Хатиконың ұзақ күтуіне куә болып, оның тарихын кейінгі ұрпаққа жеткізген жандар."]
+      ],
+      meaningEyebrow: "03 — Негізгі ойлар",
+      meaningTitle: "Бұл оқиға не туралы ойландырады?",
+      meaningLead: "Хачико туралы әңгімені тек жануар туралы қайғылы оқиға ретінде емес, адамның сезімі мен естелігі туралы шығарма ретінде де қарастыруға болады.",
+      themes: [
+        ["Адалдық","Хачиконың әрекеті адалдықтың уақытқа тәуелді емес екенін көрсететін символ ретінде қабылданады. Ол үшін бұрынғы байланыс жоғалып кетпейді."],
+        ["Сағыныш","Күту арқылы шығарма жақын адамнан айырылғаннан кейінгі бос кеңістікті сезіндіреді. Сағыныш бұл жерде сөзбен емес, әрекетпен беріледі."],
+        ["Естелік","Адам өмірден кеткеннен кейін оның күнделікті өмірдегі орны босап қалады. Бірақ естелік сол адамды адамның жүрегінде сақтап қалуы мүмкін."],
+        ["Жалғыздық","Хачиконың жалғыз күтуі оқырманға үнсіз жалғыздықты сезіндіреді. Оның айналасында адамдар болғанымен, күткен адамының орны бөлек."]
+      ],
+      galleryEyebrow: "04 — Хачиконың бейнесі",
+      galleryTitle: "Күту. Үнсіздік. Естелік.",
+      galleryLead: "Хачиконың бейнесін әр кезең әртүрлі көрсетеді. Бір суретте ол жалғыздықпен үнсіз күтіп отырса, екіншісінде оның тарихы естелікке айналғанын көреміз.",
+      galleryCaptions: [
+        "Хачиконың күтуі — жалғыздық пен адалдықтың үнсіз көрінісі.",
+        "Хачиконың бейнесі — ұмытылмаған адалдықтың символы."
+      ],
+      galleryAlts: [
+        "Хачиконың үнсіз күтіп жатқан бейнесі",
+        "Хачикоға арналған көркем ескерткіш бейнесі"
+      ],
+      filmEyebrow: "05 — Фильм",
+      filmTitle: "«Хатико: Самый верный друг»",
+      filmLead: "Фильм рассказывает ту же историю преданности, но показывает её через отношения Хатико и его хозяина и постепенно раскрывает, как одна встреча может изменить жизнь человека и целого города.",
+      filmSummaryTitle: "Краткий пересказ фильма",
+      filmPs: [
+        "История начинается со встречи профессора Паркера Уилсона и потерявшегося щенка породы акита. Профессор не собирался оставлять собаку у себя, однако между ними быстро возникает особая привязанность. Щенка называют Хатико, и со временем он становится настоящим членом семьи.",
+        "Каждый день Хатико провожает хозяина до железнодорожного вокзала, когда тот отправляется на работу, а затем приходит туда снова, чтобы встретить его вечером. Для собаки это становится привычным ритуалом, который связывает её с любимым человеком.",
+        "Однажды профессор неожиданно умирает на работе и больше не возвращается домой. Хатико не понимает причины его отсутствия. На следующий день он снова приходит на вокзал и продолжает ждать. Проходят дни, месяцы и годы, но собака не отказывается от своей привычки.",
+        "Люди на вокзале постепенно замечают Хатико. Одни начинают заботиться о нём, другие просто наблюдают за его ежедневным ожиданием. История собаки становится известной далеко за пределами вокзала, потому что в её поведении люди видят любовь, верность и память о человеке, которого она потеряла.",
+        "Годы ожидания делают Хатико символом преданности. Финал фильма особенно эмоционален: он напоминает, что настоящая привязанность не всегда требует слов и что память о близком человеке может сохраняться очень долго."
+      ],
+      filmNote: "Важно: этот раздел посвящён именно фильму и не является полным текстом книги. Здесь дан краткий пересказ основных событий и идеи фильма.",
+      videoEyebrow: "06 — Бейнематериал",
+      videoTitle: "Хачико туралы видео",
+      videoLead: "Видео енді тікелей осы сайттың ішінде ашылады. Терезе экран еніне толық бейімделеді.",
+      videoTitleAttr: "Хачико туралы видео",
+      videoOpen: "YouTube-та ашу →",
+      readerEyebrow: "07 — Онлайн кітап",
+      readerTitle: "Кітапты ашу",
+      readerLead: "Енді бұл жай ғана PDF емес. Кітаптың мұқабасын басып, оны шын кітап сияқты ашыңыз. A — алдыңғы бет, D — келесі бет, ал телефонда парақты саусақпен сырғытыңыз.",
+      bookAria: "Хачико онлайн кітап",
+      openBook: "Кітапты ашу",
+      introNote: "Бір басқанда кітаптың дыбысы естіледі",
+      readerTitleUI: "HACHIKO · BOOK EXPERIENCE",
+      pagesLabel: "Беттер",
+      previous: "← Алдыңғы",
+      next: "Келесі →",
+      computerHint: "Компьютер:",
+      keysHint: "Пернелер:",
+      phoneHint: "Телефон: сырғыту",
+      soundOpen: "Дыбыс: ашқанда қосылады",
+      pdf: "PDF",
+      fullscreen: "Толық экран",
+      soundOn: "Дыбыс: Қосулы",
+      soundOff: "Дыбыс: Өшірулі",
+      readerNote: "Внутри использованы страницы загруженного тобой PDF; сам PDF остается доступным отдельно.",
+      bookAlt: "Хачико — Иесін күткен ит",
+      comparisonEyebrow: "08 — Кітап және фильм",
+      comparisonTitle: "Екі нұсқаны бірге түсіну",
+      comparisonLead: "Кітап пен фильм бір оқиғаның негізіндегі екі түрлі баяндау тәсілі. Бірі мәтін арқылы ойға көбірек орын берсе, фильм сезімді көрініс, музыка және актерлік ойын арқылы жеткізеді.",
+      tableHeaders: ["Кітап","Фильм"],
+      tableRows: [
+        ["Оқырман оқиғаны өз қиялымен елестетеді.","Оқиға экрандағы көріністер мен дыбыс арқылы беріледі."],
+        ["Мәтін кейіпкерлердің ішкі сезімдерін баяндауға мүмкіндік береді.","Сезім көбіне көзқарас, әрекет, музыка және үнсіздік арқылы көрсетіледі."],
+        ["Оқырман оқиғаның қарқынын өзі анықтай алады.","Фильм оқиғаның уақытын режиссерлік монтаж арқылы белгілейді."]
+      ],
+      impressionEyebrow: "09 — Менің әсерім",
+      impressionTitle: "Бұл жерге өз ойыңды жаз",
+      impressionLead: "Оқып немесе көріп болғаннан кейін өз әсеріңді осында жазып қоюға болады. Бұл блок сайтты жеке оқу жобасына айналдырады.",
+      impressionPlaceholder: "Хатиконың оқиғасы маған ... туралы ой салды.",
+      impressionNote: "Жазған мәтініңіз осы браузерде автоматты түрде сақталады.",
+      conclusionEyebrow: "10 — Қорытынды",
+      conclusionTitle: "Хачиконың үнсіз сабағы",
+      conclusionP1: "Хачиконың тарихы үлкен сөздерді қажет етпейді. Оның күтуі адамның жүрегіндегі ең қарапайым, бірақ ең ауыр сезімдердің бірін көрсетеді: бір кездері қасыңда болған адамды сағыну. Уақыт өткен сайын көп нәрсе өзгереді, бірақ шынайы байланыс адамның жадында қала береді.",
+      conclusionP2: "Сондықтан бұл оқиға оқырманға адалдықтың бағасы, жақын адамдарды қадірлеу және бірге өткізілген уақыттың маңызы туралы ой салады.",
+      footerBuyTitle: "Егер Хачиконың оқиғасы сізге ұнаса",
+      footerBuyText: "Кітаптың толық нұсқасын сатып алып, оқып көріңіз.",
+      footerBuyBtn: "Кітапты сатып алып, толық оқыңыз →",
+      footer: "Хачико — Иесін күткен ит · Лесли Ньюман",
+      footerSub: "Оқу жобасына арналған веб-сайт",
+      topAlt: "Хачико — Иесін күткен ит кітабының мұқабасы",
+      lightboxAria: "Үлкейтілген фото",
+      closeAria: "Жабу"
+    },
+
+    ru: {
+      docTitle: "Хатико — Собака, которая ждала хозяина",
+      metaDescription: "Хатико — Собака, которая ждала хозяина. Учебный проект по произведению Лесли Ньюман.",
+      nav: ["Произведение","История","Фото","Фильм","Видео","Чтение","Книга / Фильм"],
+      menuAria: "Открыть меню",
+      heroEyebrow: "Лесли Ньюман",
+      heroSubtitle: "Собака, которая ждала хозяина",
+      heroAuthor: "Произведение о верности, тоске и ожидании",
+      heroNote: "Иногда встреча, которая занимает лишь короткое время в жизни человека, оставляет след на всю жизнь. История Хатико — именно такая тихая, но пронзительная история верности.",
+      moodQuote: "«Он ждал каждый день. Потому что в его сердце не было прощания.»",
+      moodLabel: "История Хатико",
+      aboutEyebrow: "01 — О произведении",
+      aboutTitle: "Долгое ожидание одной собаки",
+      aboutLead: "Уже в самом названии «Хатико — Собака, которая ждала хозяина» скрыто главное чувство произведения: ожидание. Это не просто ожидание человека в определённом месте, а верность прошлому, любимому человеку и связи, которая не прервалась.",
+      aboutP1: "История Хатико показывает, насколько глубокой может быть связь между человеком и животным. Собака воспринимает хозяина как важную часть своей повседневной жизни. Поэтому даже после его отсутствия привычка и ожидание не исчезают.",
+      aboutP2: "Самое впечатляющее в произведении — Хатико передаёт чувство почти без слов. Через его ожидание читатель по-своему ощущает смысл тоски, одиночества и верности.",
+      storyEyebrow: "02 — Сюжет",
+      storyTitle: "История Хатико",
+      storyLead: "Текст ниже не является полным текстом произведения, а представляет собой расширенный пересказ для понимания истории.",
+      events: [
+        ["Первая встреча","Один из самых важных периодов в жизни Хатико — установление близкой связи с хозяином. Совместное время, возвращение домой, знакомые звуки и привычки занимают особое место в жизни собаки."],
+        ["Ежедневная привычка","Со временем формируется определённый распорядок. Хатико провожает хозяина и учится встречать его. Простое ежедневное действие становится знаком их связи."],
+        ["Неожиданная разлука","Однажды привычная жизнь нарушается. Человек, которого ждал Хатико, больше не возвращается как раньше. Но собака не может объяснить это по-человечески и продолжает ждать, опираясь на прежнюю привычку."],
+        ["Долгое ожидание","С каждым днём ожидание становится всё печальнее. Люди вокруг меняются, проходит время, но внутренняя верность Хатико остаётся прежней. Его поведение привлекает внимание людей."],
+        ["Хатико, которого запомнили люди","История Хатико перестаёт быть историей только одной семьи. Люди узнают о его верности. Образ собаки напоминает и о чувствах человека после потери близкого."]
+      ],
+      storyQuote: "«Иногда ожидание продолжается не потому, что нельзя забыть, а потому, что не хочется забывать.»",
+      characters: [
+        ["Хатико","Собака, чья верность хозяину становится главным центром истории."],
+        ["Профессор","Самый важный человек в жизни Хатико и его близкий спутник."],
+        ["Люди","Люди, которые наблюдали за долгим ожиданием Хатико и передали его историю следующим поколениям."]
+      ],
+      meaningEyebrow: "03 — Главные идеи",
+      meaningTitle: "О чём заставляет задуматься эта история?",
+      meaningLead: "Историю Хатико можно воспринимать не только как печальный рассказ о животном, но и как произведение о человеческих чувствах и памяти.",
+      themes: [
+        ["Верность","Поступок Хатико воспринимается как символ того, что верность не зависит от времени. Для него прежняя связь не исчезает."],
+        ["Тоска","Через ожидание история передаёт чувство пустоты после потери близкого человека. Тоска здесь выражена не словами, а поступком."],
+        ["Память","После ухода человека его место в повседневной жизни пустеет. Но память может сохранить его в сердце."],
+        ["Одиночество","Одинокое ожидание Хатико помогает почувствовать тихое одиночество. Вокруг него есть люди, но место того, кого он ждёт, остаётся особенным."]
+      ],
+      galleryEyebrow: "04 — Образ Хатико",
+      galleryTitle: "Ожидание. Тишина. Память.",
+      galleryLead: "Образ Хатико в разные периоды показывают по-разному. На одном снимке он молча ждёт в одиночестве, на другом его история уже становится памятью.",
+      galleryCaptions: [
+        "Ожидание Хатико — тихое выражение одиночества и верности.",
+        "Образ Хатико — символ верности, которую не забыли."
+      ],
+      galleryAlts: [
+        "Хатико тихо ждёт",
+        "Художественный памятник Хатико"
+      ],
+      filmEyebrow: "05 — Фильм",
+      filmTitle: "«Хатико: Самый верный друг»",
+      filmLead: "Фильм рассказывает ту же историю преданности, но показывает её через отношения Хатико и его хозяина и постепенно раскрывает, как одна встреча может изменить жизнь человека и целого города.",
+      filmSummaryTitle: "Краткий пересказ фильма",
+      filmPs: [
+        "История начинается со встречи профессора Паркера Уилсона и потерявшегося щенка породы акита. Профессор не собирался оставлять собаку у себя, однако между ними быстро возникает особая привязанность. Щенка называют Хатико, и со временем он становится настоящим членом семьи.",
+        "Каждый день Хатико провожает хозяина до железнодорожного вокзала, когда тот отправляется на работу, а затем приходит туда снова, чтобы встретить его вечером. Для собаки это становится привычным ритуалом, который связывает её с любимым человеком.",
+        "Однажды профессор неожиданно умирает на работе и больше не возвращается домой. Хатико не понимает причины его отсутствия. На следующий день он снова приходит на вокзал и продолжает ждать. Проходят дни, месяцы и годы, но собака не отказывается от своей привычки.",
+        "Люди на вокзале постепенно замечают Хатико. Одни начинают заботиться о нём, другие просто наблюдают за его ежедневным ожиданием. История собаки становится известной далеко за пределами вокзала, потому что в её поведении люди видят любовь, верность и память о человеке, которого она потеряла.",
+        "Годы ожидания делают Хатико символом преданности. Финал фильма особенно эмоционален: он напоминает, что настоящая привязанность не всегда требует слов и что память о близком человеке может сохраняться очень долго."
+      ],
+      filmNote: "Важно: этот раздел посвящён именно фильму и не является полным текстом книги. Здесь дан краткий пересказ основных событий и идеи фильма.",
+      videoEyebrow: "06 — Видеоматериал",
+      videoTitle: "Видео о Хатико",
+      videoLead: "Теперь видео открывается прямо внутри сайта и полностью адаптируется под ширину экрана.",
+      videoTitleAttr: "Видео о Хатико",
+      videoOpen: "Открыть на YouTube →",
+      readerEyebrow: "07 — Онлайн-книга",
+      readerTitle: "Открыть книгу",
+      readerLead: "Теперь это не просто PDF. Нажмите на обложку и откройте книгу как настоящую. A — предыдущая страница, D — следующая, а на телефоне листайте пальцем.",
+      bookAria: "Онлайн-книга Хатико",
+      openBook: "Открыть книгу",
+      introNote: "При открытии раздаётся звук книги",
+      readerTitleUI: "HACHIKO · BOOK EXPERIENCE",
+      pagesLabel: "Страницы",
+      previous: "← Назад",
+      next: "Вперёд →",
+      computerHint: "Компьютер:",
+      keysHint: "Клавиши:",
+      phoneHint: "Телефон: свайп",
+      soundOpen: "Звук: включится при открытии",
+      pdf: "PDF",
+      fullscreen: "Полный экран",
+      soundOn: "Звук: Включён",
+      soundOff: "Звук: Выключен",
+      readerNote: "Внутри используются страницы загруженного тобой PDF; сам PDF остаётся доступным отдельно.",
+      bookAlt: "Хатико — Собака, которая ждала хозяина",
+      comparisonEyebrow: "08 — Книга и фильм",
+      comparisonTitle: "Понять две версии вместе",
+      comparisonLead: "Книга и фильм — два разных способа рассказать одну историю. Текст оставляет больше места для размышлений, а фильм передаёт чувства через изображение, музыку и актёрскую игру.",
+      tableHeaders: ["Книга","Фильм"],
+      tableRows: [
+        ["Читатель представляет историю в своём воображении.","История передаётся через изображение и звук на экране."],
+        ["Текст позволяет описывать внутренние чувства героев.","Чувства чаще показываются через взгляд, действия, музыку и тишину."],
+        ["Читатель сам определяет темп истории.","Фильм задаёт время истории с помощью режиссёрского монтажа."]
+      ],
+      impressionEyebrow: "09 — Моё впечатление",
+      impressionTitle: "Напишите здесь свои мысли",
+      impressionLead: "После чтения или просмотра здесь можно оставить своё впечатление. Этот блок превращает сайт в личный учебный проект.",
+      impressionPlaceholder: "История Хатико заставила меня задуматься о ...",
+      impressionNote: "Написанный текст автоматически сохраняется в этом браузере.",
+      conclusionEyebrow: "10 — Итог",
+      conclusionTitle: "Тихий урок Хатико",
+      conclusionP1: "Истории Хатико не нужны громкие слова. Его ожидание показывает одно из самых простых, но тяжёлых человеческих чувств: тоску по человеку, который когда-то был рядом. Со временем многое меняется, но настоящая связь остаётся в памяти.",
+      conclusionP2: "Поэтому эта история заставляет задуматься о цене верности, важности ценить близких и времени, проведённого вместе.",
+      footerBuyTitle: "Если вам понравилась история Хатико",
+      footerBuyText: "Купите полную версию книги и прочитайте её.",
+      footerBuyBtn: "Купить книгу и прочитать полностью →",
+      footer: "Хатико — Собака, которая ждала хозяина · Лесли Ньюман",
+      footerSub: "Веб-сайт для учебного проекта",
+      topAlt: "Обложка книги «Хатико — Собака, которая ждала хозяина»",
+      lightboxAria: "Увеличенное фото",
+      closeAria: "Закрыть"
+    },
+
+    en: {
+      docTitle: "Hachiko — The Dog Who Waited for His Owner",
+      metaDescription: "Hachiko — The Dog Who Waited for His Owner. An educational project based on the work of Leslie Newman.",
+      nav: ["The Work","Story","Photos","Film","Video","Read","Book / Film"],
+      menuAria: "Open menu",
+      heroEyebrow: "Leslie Newman",
+      heroSubtitle: "The dog who waited for his owner",
+      heroAuthor: "A story about loyalty, longing and waiting",
+      heroNote: "Sometimes a meeting that lasts only a short time in a person's life leaves a mark that lasts forever. Hachiko's story is exactly that kind of quiet, deeply moving story of loyalty.",
+      moodQuote: "“He waited every day. Because there was no goodbye in his heart.”",
+      moodLabel: "Hachiko's story",
+      aboutEyebrow: "01 — About the work",
+      aboutTitle: "One dog's long wait",
+      aboutLead: "The title “Hachiko — The Dog Who Waited for His Owner” already contains the central feeling of the story: waiting. It is not simply waiting for someone in a certain place, but loyalty to the past, to a loved person and to an unbroken bond.",
+      aboutP1: "Hachiko's story shows how deep the bond between a person and an animal can be. A dog treats its owner as an important part of everyday life. That is why, even when the owner is gone, the routine and the waiting do not disappear.",
+      aboutP2: "The most striking part of the work is that Hachiko communicates emotion without many words. Through his waiting, the reader can feel the meaning of longing, loneliness and loyalty in their own way.",
+      storyEyebrow: "02 — Story",
+      storyTitle: "Hachiko's story",
+      storyLead: "The text below is not the complete work; it is an expanded narrative summary designed to help understand the story.",
+      events: [
+        ["The first meeting","One of the most important periods in Hachiko's life is the close bond he develops with his owner. Time spent together, returning home, familiar sounds and routines become special parts of the dog's life."],
+        ["The daily routine","Over time, a routine forms. Hachiko learns to see his owner off and to meet him again. This simple daily action becomes a sign of their bond."],
+        ["An unexpected separation","One day, that ordinary life is broken. The person Hachiko is waiting for does not return as before. But the dog cannot explain the absence like a human, so he continues to wait according to his old routine."],
+        ["The long wait","As the days pass, the waiting becomes more sorrowful. People around him change and time moves on, but Hachiko's inner loyalty remains. His behavior attracts people's attention."],
+        ["Hachiko remembered by people","Hachiko's fate becomes more than one family's story. People learn about his loyalty. The dog's image also reminds people of the feelings that come after losing someone close."]
+      ],
+      storyQuote: "“Sometimes waiting continues not because we cannot forget, but because we do not want to forget.”",
+      characters: [
+        ["Hachiko","The dog whose loyalty to his owner becomes the heart of the story."],
+        ["The professor","The most important person in Hachiko's life and his close companion."],
+        ["People","Those who witnessed Hachiko's long wait and carried his story to later generations."]
+      ],
+      meaningEyebrow: "03 — Main ideas",
+      meaningTitle: "What does this story make us think about?",
+      meaningLead: "Hachiko's story can be viewed not only as a sad story about an animal, but also as a work about human feelings and memory.",
+      themes: [
+        ["Loyalty","Hachiko's actions are often seen as a symbol that loyalty is not controlled by time. For him, the old bond does not disappear."],
+        ["Longing","Through waiting, the story conveys the emptiness left after losing someone close. Here, longing is expressed through action rather than words."],
+        ["Memory","When someone is gone, their place in everyday life becomes empty. But memory can keep that person in the heart."],
+        ["Loneliness","Hachiko's solitary waiting lets the reader feel a quiet kind of loneliness. There are people around him, but the person he is waiting for has a unique place."]
+      ],
+      galleryEyebrow: "04 — Hachiko's image",
+      galleryTitle: "Waiting. Silence. Memory.",
+      galleryLead: "Hachiko has been portrayed differently across time. In one image he silently waits alone; in another, we see how his story has become a memory.",
+      galleryCaptions: [
+        "Hachiko's waiting — a quiet image of loneliness and loyalty.",
+        "Hachiko's image — a symbol of loyalty that was not forgotten."
+      ],
+      galleryAlts: [
+        "Hachiko quietly waiting",
+        "Artistic monument dedicated to Hachiko"
+      ],
+      filmEyebrow: "05 — Film",
+      filmTitle: "“Hachi: A Dog's Tale”",
+      filmLead: "The film tells the same story of devotion, but presents it through Hachiko's relationship with his owner and gradually shows how one meeting can change the life of a person and an entire town.",
+      filmSummaryTitle: "Brief film summary",
+      filmPs: [
+        "The story begins with Professor Parker Wilson meeting a lost Akita puppy. The professor did not plan to keep the dog, but a special bond quickly forms between them. The puppy is named Hachi, and over time he becomes a true member of the family.",
+        "Every day, Hachi walks with his owner to the railway station when he leaves for work, and then returns to meet him in the evening. For the dog, this becomes a familiar ritual connecting him with the person he loves.",
+        "One day, the professor unexpectedly dies at work and never returns home. Hachi does not understand why he is absent. The next day he goes back to the station and continues waiting. Days, months and years pass, but the dog does not give up the routine.",
+        "People at the station gradually notice Hachi. Some begin to care for him; others simply watch his daily waiting. The dog's story becomes known far beyond the station because people see love, loyalty and memory in his behavior.",
+        "Years of waiting make Hachi a symbol of devotion. The ending is especially emotional: it reminds us that genuine attachment does not always require words and that the memory of someone close can last for a very long time."
+      ],
+      filmNote: "Important: this section is about the film specifically and is not the full text of the book. It provides a brief summary of the main events and ideas of the film.",
+      videoEyebrow: "06 — Video material",
+      videoTitle: "Video about Hachiko",
+      videoLead: "The video now opens directly inside the site and adapts to the full width of the screen.",
+      videoTitleAttr: "Video about Hachiko",
+      videoOpen: "Open on YouTube →",
+      readerEyebrow: "07 — Online book",
+      readerTitle: "Open the book",
+      readerLead: "This is more than a PDF now. Click the cover and open the book like a real book. A — previous page, D — next page, and on a phone, swipe the page with your finger.",
+      bookAria: "Hachiko online book",
+      openBook: "Open the book",
+      introNote: "A book sound plays when you open it",
+      readerTitleUI: "HACHIKO · BOOK EXPERIENCE",
+      pagesLabel: "Pages",
+      previous: "← Previous",
+      next: "Next →",
+      computerHint: "Computer:",
+      keysHint: "Keys:",
+      phoneHint: "Phone: swipe",
+      soundOpen: "Sound: turns on when opening",
+      pdf: "PDF",
+      fullscreen: "Full screen",
+      soundOn: "Sound: On",
+      soundOff: "Sound: Off",
+      readerNote: "The reader uses pages from the uploaded PDF; the PDF itself remains available separately.",
+      bookAlt: "Hachiko — The Dog Who Waited for His Owner",
+      comparisonEyebrow: "08 — Book and film",
+      comparisonTitle: "Understanding both versions",
+      comparisonLead: "The book and film are two different ways of telling the same story. The text leaves more room for reflection, while the film conveys emotion through images, music and acting.",
+      tableHeaders: ["Book","Film"],
+      tableRows: [
+        ["The reader imagines the story in their own way.","The story is presented through images and sound on screen."],
+        ["Text can describe the characters' inner feelings.","Feelings are often shown through looks, actions, music and silence."],
+        ["The reader controls the pace of the story.","The film sets the timing through editorial and directorial choices."]
+      ],
+      impressionEyebrow: "09 — My impression",
+      impressionTitle: "Write your thoughts here",
+      impressionLead: "After reading or watching, you can leave your impression here. This block turns the website into a personal learning project.",
+      impressionPlaceholder: "Hachiko's story made me think about ...",
+      impressionNote: "Your text is saved automatically in this browser.",
+      conclusionEyebrow: "10 — Conclusion",
+      conclusionTitle: "Hachiko's quiet lesson",
+      conclusionP1: "Hachiko's story does not need grand words. His waiting shows one of the simplest, yet most painful human feelings: missing someone who was once beside you. As time passes, many things change, but a real connection can remain in memory.",
+      conclusionP2: "That is why the story invites the reader to think about the value of loyalty, appreciating people close to us and the importance of the time we spend together.",
+      footerBuyTitle: "If you liked Hachiko's story",
+      footerBuyText: "Buy the full version of the book and read it.",
+      footerBuyBtn: "Buy the book and read it fully →",
+      footer: "Hachiko — The Dog Who Waited for His Owner · Leslie Newman",
+      footerSub: "Website for an educational project",
+      topAlt: "Cover of the book “Hachiko — The Dog Who Waited for His Owner”",
+      lightboxAria: "Enlarged photo",
+      closeAria: "Close"
+    }
+  };
+
+  const langKeys = ["kk","ru","en"];
+  const fallbackAssets = {};
+  const originalAssets = new WeakMap();
+
+  function setAll(selector, values){
+    document.querySelectorAll(selector).forEach((el,i)=>{
+      el.textContent = Array.isArray(values) ? (values[i] ?? values[values.length-1] ?? "") : values;
+    });
+  }
+  function setAttrAll(selector, attr, values){
+    document.querySelectorAll(selector).forEach((el,i)=>{
+      el.setAttribute(attr, Array.isArray(values) ? (values[i] ?? values[values.length-1] ?? "") : values);
+    });
+  }
+
+  function assetVariant(src, lang){
+    if(!src || /^https?:\/\//i.test(src) || src.startsWith("data:") || !src.includes(".")) return src;
+    const slash = src.lastIndexOf("/");
+    const dir = slash >= 0 ? src.slice(0, slash + 1) : "";
+    const file = slash >= 0 ? src.slice(slash + 1) : src;
+    const dot = file.lastIndexOf(".");
+    if(dot < 0) return src;
+    return dir + file.slice(0,dot) + "-" + lang + file.slice(dot);
+  }
+
+  function localizeImage(img, lang){
+    if(!originalAssets.has(img)) originalAssets.set(img, img.getAttribute("src") || "");
+    const base = originalAssets.get(img);
+    if(!base) return;
+    const localized = assetVariant(base, lang);
+    if(localized === base){ img.src = base; return; }
+    img.onerror = function(){
+      img.onerror = null;
+      img.src = base;
+    };
+    img.src = localized;
+  }
+
+  function updateImages(lang){
+    document.querySelectorAll(".cover img, .gallery img, .closed-book .cover-front img, #leftPage, #rightPage, #turnFront, #turnBack")
+      .forEach(img => localizeImage(img, lang));
+    setAttrAll(".cover img", "alt", T[lang].topAlt);
+    setAttrAll(".closed-book .cover-front img", "alt", T[lang].bookAlt);
+    setAttrAll(".gallery img", "alt", T[lang].galleryAlts);
+    setAttrAll(".gallery figure figcaption", "data-lang-updated", lang);
+    // Refresh currently visible book pages using language-specific assets.
+    if(window.HACHIKO_READER_API && typeof window.HACHIKO_READER_API.setLanguage === "function"){
+      window.HACHIKO_READER_API.setLanguage(lang);
+    }
+  }
+
+  function updateReaderUI(lang){
+    const t = T[lang];
+    const total = window.HACHIKO_BOOK_TOTAL || 22;
+    const current = window.HACHIKO_BOOK_CURRENT || 1;
+    const right = Math.min(current + 1, total);
+    const label = current === right ? `${current} / ${total}` : `${current}–${right} / ${total}`;
+    const page = document.getElementById("readerPage");
+    const status = document.getElementById("readerStatus");
+    const prev = document.getElementById("prevPage");
+    const next = document.getElementById("nextPage");
+    const state = document.getElementById("soundState");
+    const soundBtn = document.getElementById("soundToggle");
+    const disabledState = window.HACHIKO_BOOK_BUSY ? true : false;
+    if(page) page.textContent = label;
+    if(status) status.textContent = `${t.pagesLabel} ${label}`;
+    if(prev) prev.textContent = t.previous;
+    if(next) next.textContent = t.next;
+    if(state) state.textContent = window.HACHIKO_SOUND_ON === false ? t.soundOff : t.soundOpen;
+    if(soundBtn) soundBtn.textContent = window.HACHIKO_SOUND_ON === false ? t.soundOff : t.soundOn;
+  }
+
+  function applyLanguage(lang){
+    if(!T[lang]) lang = "kk";
+    const t = T[lang];
+
+    document.documentElement.lang = lang === "kk" ? "kk" : lang;
+    document.title = t.docTitle;
+    const meta = document.querySelector('meta[name="description"]');
+    if(meta) meta.setAttribute("content", t.metaDescription);
+
+    setAll(".navlinks a", t.nav);
+    setAll(".mobile-menu a", t.nav);
+
+    const setOne = (selector, key) => {
+      const el = document.querySelector(selector);
+      if(el && t[key] !== undefined) el.textContent = t[key];
+    };
+
+    setOne(".eyebrow", "heroEyebrow");
+    setOne(".subtitle", "heroSubtitle");
+    setOne(".author", "heroAuthor");
+    setOne(".hero-note", "heroNote");
+    setOne(".mood-quote p", "moodQuote");
+    setOne(".mood-quote span", "moodLabel");
+
+    setOne("#about .eyebrow", "aboutEyebrow");
+    setOne("#about .section-title", "aboutTitle");
+    setOne("#about .section-lead", "aboutLead");
+    const aboutPs = document.querySelectorAll("#about .long-text p");
+    aboutPs.forEach((p,i)=>p.textContent=t["aboutP"+(i+1)]);
+
+    setOne("#story .eyebrow", "storyEyebrow");
+    setOne("#story .section-title", "storyTitle");
+    setOne("#story .section-lead", "storyLead");
+    document.querySelectorAll("#story .timeline .event").forEach((el,i)=>{
+      el.querySelector("h3").textContent=t.events[i][0];
+      el.querySelector("p").textContent=t.events[i][1];
+    });
+    setOne("#story .quote p", "storyQuote");
+    document.querySelectorAll("#story .characters .character").forEach((el,i)=>{
+      el.querySelector("strong").textContent=t.characters[i][0];
+      el.querySelector("span").textContent=t.characters[i][1];
+    });
+
+    setOne("#meaning .eyebrow", "meaningEyebrow");
+    setOne("#meaning .section-title", "meaningTitle");
+    setOne("#meaning .section-lead", "meaningLead");
+    document.querySelectorAll("#meaning .theme").forEach((el,i)=>{
+      el.querySelector("h3").textContent=t.themes[i][0];
+      el.querySelector("p").textContent=t.themes[i][1];
+    });
+
+    setOne("#gallery .eyebrow", "galleryEyebrow");
+    setOne("#gallery .section-title", "galleryTitle");
+    setOne("#gallery .section-lead", "galleryLead");
+    setAll("#gallery figcaption", t.galleryCaptions);
+
+    setOne("#film .eyebrow", "filmEyebrow");
+    setOne("#film .section-title", "filmTitle");
+    setOne("#film .section-lead", "filmLead");
+    setOne("#film .film-summary h3", "filmSummaryTitle");
+    document.querySelectorAll("#film .film-summary > p:not(.film-note)").forEach((el,i)=>el.textContent=t.filmPs[i]);
+    setOne("#film .film-note", "filmNote");
+
+    setOne("#video .eyebrow", "videoEyebrow");
+    setOne("#video .section-title", "videoTitle");
+    setOne("#video .section-lead", "videoLead");
+    setAttrAll("#video iframe", "title", t.videoTitleAttr);
+    setOne("#video .video-link", "videoOpen");
+
+    setOne("#reader .eyebrow", "readerEyebrow");
+    setOne("#reader .section-title", "readerTitle");
+    setOne("#reader .section-lead", "readerLead");
+    setAttrAll("#bookReader", "aria-label", t.bookAria);
+    setOne("#openBook", "openBook");
+    setOne(".intro-note", "introNote");
+    setOne(".reader-title", "readerTitleUI");
+    // Rebuild reader hints while preserving keyboard bold tags.
+    const hints = document.querySelectorAll(".reader-hints span");
+    if(hints[0]) hints[0].innerHTML = t.computerHint+" <b>A</b> / <b>D</b>";
+    if(hints[1]) hints[1].innerHTML = t.keysHint+" <b>←</b> / <b>→</b>";
+    if(hints[2]) hints[2].textContent = t.phoneHint;
+    if(hints[3]) hints[3].textContent = t.soundOpen;
+    setOne(".reader-note", "readerNote");
+    const pdfLink = document.querySelector('.reader-action[href$="hachiko-book.pdf"]');
+    if(pdfLink) pdfLink.textContent = t.pdf;
+    setOne("#readerFullscreen", "fullscreen");
+
+    setOne("#comparison .eyebrow", "comparisonEyebrow");
+    setOne("#comparison .section-title", "comparisonTitle");
+    setOne("#comparison .section-lead", "comparisonLead");
+    const ths = document.querySelectorAll("#comparison th");
+    ths.forEach((el,i)=>el.textContent=t.tableHeaders[i]);
+    document.querySelectorAll("#comparison tr").forEach((tr,row)=>{
+      if(row===0) return;
+      const cells=tr.querySelectorAll("td");
+      cells.forEach((cell,i)=>cell.textContent=t.tableRows[row-1][i]);
+    });
+
+    setOne("#impression .eyebrow", "impressionEyebrow");
+    setOne("#impression .section-title", "impressionTitle");
+    setOne("#impression .section-lead", "impressionLead");
+    const ta=document.querySelector(".impression textarea");
+    if(ta) ta.setAttribute("placeholder",t.impressionPlaceholder);
+    setOne(".impression-note", "impressionNote");
+
+    setOne('section:not(#about):not(#story):not(#meaning):not(#gallery):not(#film):not(#video):not(#reader):not(#comparison):not(#impression) .eyebrow', "conclusionEyebrow");
+    setOne(".dark-box h3", "conclusionTitle");
+    const cps=document.querySelectorAll(".dark-box p");
+    if(cps[0]) cps[0].textContent=t.conclusionP1;
+    if(cps[1]) cps[1].textContent=t.conclusionP2;
+
+    setOne(".footer-buy-title", "footerBuyTitle");
+    setOne(".footer-buy-text", "footerBuyText");
+    setOne(".footer-buy-btn", "footerBuyBtn");
+    const footer=document.querySelector(".footer");
+    if(footer){
+      const br=footer.querySelector(".footer-buy");
+      const nodes=Array.from(footer.childNodes);
+      // The footer text after .footer-buy is a text node + <br> + text.
+      nodes.forEach(node=>{
+        if(node === br) return;
+      });
+      footer.setAttribute("data-language", lang);
+      const textNodes=nodes.filter(n=>n.nodeType===Node.TEXT_NODE && n.textContent.trim());
+      if(textNodes[0]) textNodes[0].textContent="\n  "+t.footer+"\n  ";
+      if(textNodes[1]) textNodes[1].textContent="\n  "+t.footerSub+"\n";
+    }
+
+    setAttrAll("#menuToggle", "aria-label", t.menuAria);
+    setAttrAll("#lightbox", "aria-label", t.lightboxAria);
+    setAttrAll("#lightboxClose", "aria-label", t.closeAria);
+
+    setAttrAll(".gallery img", "alt", t.galleryAlts);
+    setAttrAll(".cover img", "alt", t.topAlt);
+    setAttrAll(".closed-book .cover-front img", "alt", t.bookAlt);
+
+    document.querySelectorAll(".lang-btn").forEach(btn=>{
+      btn.classList.toggle("active",btn.dataset.lang===lang);
+      btn.setAttribute("aria-pressed", String(btn.dataset.lang===lang));
+    });
+
+    updateImages(lang);
+    updateReaderUI(lang);
+    localStorage.setItem("hachikoLanguage",lang);
+    window.dispatchEvent(new CustomEvent("hachiko:languagechange",{detail:{lang}}));
+  }
+
+  // Expose small bridge for the existing reader.
+  window.HACHIKO_TRANSLATIONS = T;
+  window.HACHIKO_APPLY_LANGUAGE = applyLanguage;
+  window.HACHIKO_BOOK_TOTAL = 22;
+
+  document.addEventListener("DOMContentLoaded",()=>{
+    document.querySelectorAll(".lang-btn").forEach(btn=>{
+      btn.addEventListener("click",()=>applyLanguage(btn.dataset.lang));
+    });
+    const saved=localStorage.getItem("hachikoLanguage");
+    applyLanguage(langKeys.includes(saved) ? saved : "kk");
+  });
+})();
+</script>
+
+</body>
+</html>
